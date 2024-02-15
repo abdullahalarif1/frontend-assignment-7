@@ -71,7 +71,13 @@
     @apply border-border  p-0 m-0 box-border;
   }
   body {
-    @apply bg-background text-foreground;
+    @apply text-foreground;
+    background: linear-gradient(to right, #020403, #18332C)
+    
+  }
+  .bg-auth{
+    background: linear-gradient(to right, #020403, #18332C)
+    
   }
   html {
     font-family: "Exo 2", sans-serif;
