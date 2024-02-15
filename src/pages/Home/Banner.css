@@ -1,0 +1,12 @@
+.home-banner-container {
+  background: url("https://cdn.shopify.com/s/files/1/1215/2782/files/leo_suppre_elements_slide1_h3.jpg");
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  overflow: hidden;
+ 
+}
