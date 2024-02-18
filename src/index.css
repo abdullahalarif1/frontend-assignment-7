@@ -79,6 +79,10 @@
     background: linear-gradient(to right, #020403, #18332C)
     
   }
+  .bg-card{
+    background: linear-gradient(to bottom,#18332C, #020403 )
+    
+  }
   html {
     font-family: "Exo 2", sans-serif;
     font-optical-sizing: auto;
@@ -90,4 +94,6 @@
     font-weight: 400;
     font-style: normal;
   }
+  
 }
+

@@ -1,10 +1,11 @@
 import Container from "@/components/ui/Container";
+import TitleSection from "@/components/ui/TitleSection";
 import { Button } from "@/components/ui/button";
 import { useGetClothesQuery } from "@/redux/features/winter-clothes/clothesApi";
-import { Check, CornerRightDown, Dot } from "lucide-react";
-import React from "react";
+import { ArrowRightToLine, Check, Dot } from "lucide-react";
+import { Link } from "react-router-dom";
 
-const AllWinterClothes = () => {
+const WinterClothes = () => {
   const { data, isLoading } = useGetClothesQuery(undefined);
   console.log(data);
 
@@ -13,14 +14,12 @@ const AllWinterClothes = () => {
   }
   return (
     <Container>
-      <div className="text-center max-w-[1086px] mx-auto mt-28 pb-14">
-        <h1 className="font-extrabold border-2 border-primary text-primary italic-regular text-3xl md:text-5xl py-6 flex justify-center items-center gap-4">
-         All Winter Clothes <CornerRightDown className="size-8" />
-        </h1>
-      </div>
+     
+        <TitleSection>Winter Clothes</TitleSection>
+ 
 
       <div className="grid md:grid-cols-3  gap-5">
-        {data.map((cloth) => (
+        {data.slice(0, 6).map((cloth) => (
           <div className="mt-5  shadow-2xl  p-10 relative text-secondary bg-card ">
             <img
               className="h-[500px] md:h-72 w-full pb-4"
@@ -50,8 +49,13 @@ const AllWinterClothes = () => {
           </div>
         ))}
       </div>
+      <Link to="/winter-clothes">
+        <Button className="h-16 w-44 rounded-none flex items-center ms-auto gap-3 mt-8 font-bold text-base ">
+          View All <ArrowRightToLine />
+        </Button>
+      </Link>
     </Container>
   );
 };
 
-export default AllWinterClothes;
+export default WinterClothes;

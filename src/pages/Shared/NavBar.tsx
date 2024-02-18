@@ -1,15 +1,28 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { CircleUserRound } from "lucide-react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import navTitle from "../../assets/large-removebg-preview.png";
 import { cn } from "@/lib/utils";
+import { useAppDispatch, useAppSelector } from "@/redux/hooks";
+import {
+  logout,
+  useCurrentUser,
+} from "@/redux/features/auth/authSlice";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const dispatch = useAppDispatch();
+  const navigate = useNavigate();
+  const user = useAppSelector(useCurrentUser);
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const handleLogout = () => {
+    dispatch(logout());
+    navigate("/login");
   };
 
   return (
@@ -54,29 +67,40 @@ const NavBar = () => {
           >
             All Winter Clothes
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              cn(
-                "hover:bg-primary text hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
-                {
-                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
-                    isActive,
-                }
-              )
-            }
-            to="/admin"
-          >
-            Dashboard
-          </NavLink>
+          {user && (
+            <NavLink
+              className={({ isActive }) =>
+                cn(
+                  "hover:bg-primary text hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                  {
+                    "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                      isActive,
+                  }
+                )
+              }
+              to="/dashboard"
+            >
+              Dashboard
+            </NavLink>
+          )}
         </div>
 
         <div className="flex items-center gap-2">
           <CircleUserRound className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" />
-          <NavLink to="/login">
-            <Button className=" rounded-none font-bold px-4 sm:px-6">
-              Login
+          {user ? (
+            <Button
+              onClick={handleLogout}
+              className=" rounded-none font-bold px-4 sm:px-6"
+            >
+              Logout
             </Button>
-          </NavLink>
+          ) : (
+            <NavLink to="/login">
+              <Button className=" rounded-none font-bold px-4 sm:px-6">
+                Login
+              </Button>
+            </NavLink>
+          )}
         </div>
 
         {/* Toggle Menu */}
