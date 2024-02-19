@@ -16,7 +16,7 @@ const GallerySection = () => {
 
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const handleOnChange = (index) => {
+  const handleOnChange = (index: number) => {
     setCurrentIndex(index);
   };
 

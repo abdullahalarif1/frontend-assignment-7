@@ -2,7 +2,8 @@ import Container from "@/components/ui/Container";
 import TitleSection from "@/components/ui/TitleSection";
 import { Button } from "@/components/ui/button";
 import { useGetClothesQuery } from "@/redux/features/winter-clothes/clothesApi";
-import { ArrowRightToLine, Check, Dot } from "lucide-react";
+import { TClothesItem } from "@/types/types";
+import { ArrowRightToLine, Dot } from "lucide-react";
 import { Link } from "react-router-dom";
 
 const WinterClothes = () => {
@@ -12,15 +13,17 @@ const WinterClothes = () => {
   if (isLoading) {
     return <span>Loading...</span>;
   }
+
   return (
     <Container>
-     
-        <TitleSection>Winter Clothes</TitleSection>
- 
+      <TitleSection>Winter Clothes</TitleSection>
 
       <div className="grid md:grid-cols-3  gap-5">
-        {data.slice(0, 6).map((cloth) => (
-          <div className="mt-5  shadow-2xl  p-10 relative text-secondary bg-card ">
+        {data?.slice(0, 6).map((cloth: TClothesItem) => (
+          <div
+            key={cloth._id}
+            className="mt-5  shadow-2xl  p-10 relative text-secondary bg-card "
+          >
             <img
               className="h-[500px] md:h-72 w-full pb-4"
               src={cloth.image}
@@ -36,16 +39,21 @@ const WinterClothes = () => {
             </button>
 
             <ul className="mb-10">
-              {cloth.size.map((size) => (
-                <li className=" flex  font-semibold items-center gap-4 pb-3">
+              {cloth.size.map((size, i) => (
+                <li
+                  key={i}
+                  className=" flex  font-semibold items-center gap-4 pb-3"
+                >
                   <Dot className="w-5" />
                   <span className="text-xs">{size}</span>
                 </li>
               ))}
             </ul>
-            <Button className="h-16 w-full rounded-none  font-bold text-base absolute left-0 right-0 bottom-0 ">
-              View Detail
-            </Button>
+            <Link to={`/winter-clothes/${cloth._id}`}>
+              <Button className="h-16 w-full rounded-none  font-bold text-base absolute left-0 right-0 bottom-0 ">
+                View Detail
+              </Button>
+            </Link>
           </div>
         ))}
       </div>

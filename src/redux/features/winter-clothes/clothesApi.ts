@@ -8,7 +8,13 @@ const clothesApi = baseApi.injectEndpoints({
         method: "GET",
       }),
     }),
+    getSingleClothes: builder.query({
+      query: (data) => ({
+        url: `/winter-clothes/${data._id}`,
+        method: "GET",
+      }),
+    }),
   }),
 });
 
-export const { useGetClothesQuery } = clothesApi;
+export const { useGetClothesQuery, useGetSingleClothesQuery } = clothesApi;

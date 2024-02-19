@@ -7,6 +7,7 @@ import AboutUs from "./AboutUs";
 import SuccessStories from "./SuccesStories";
 import GallerySection from "./Gallery";
 
+
 const Home = () => {
   return (
     <div>
