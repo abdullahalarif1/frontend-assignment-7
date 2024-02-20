@@ -9,6 +9,7 @@ import {
   logout,
   useCurrentUser,
 } from "@/redux/features/auth/authSlice";
+import { motion } from "framer-motion";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,6 +26,11 @@ const NavBar = () => {
     navigate("/login");
   };
 
+    const parent = {
+      hidden: { opacity: 0, scale: 0.1 },
+      visible: { opacity: 1, scale: 1 },
+    };
+
   return (
     <div className="fixed top-0 w-full z-50 ">
       <nav className="flex justify-between items-center px-2 md:px-0  w-full max-w-[1300px] mx-auto h-full">
@@ -38,7 +44,16 @@ const NavBar = () => {
           </NavLink>
         </div>
 
-        <div className="hidden sm:flex space-x-5 text-sm lg:text-base text-secondary">
+        <motion.div
+          className="hidden sm:flex space-x-5 text-sm lg:text-base text-secondary"
+          variants={parent}
+          initial="hidden"
+          animate="visible"
+          transition={{
+            ease: "easeIn",
+            duration: 1.5,
+          }}
+        >
           <NavLink
             to="/"
             className={({ isActive }) =>
@@ -83,7 +98,7 @@ const NavBar = () => {
               Dashboard
             </NavLink>
           )}
-        </div>
+        </motion.div>
 
         <div className="flex items-center gap-2">
           <CircleUserRound className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" />

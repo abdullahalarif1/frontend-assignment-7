@@ -8,22 +8,35 @@ import {
   TableHeader,
   TableRow,
 } from "@/components/ui/table";
-import { useGetClothesQuery } from "@/redux/features/winter-clothes/clothesApi";
+import {
+  useDeleteClothesMutation,
+  useGetClothesQuery,
+} from "@/redux/features/winter-clothes/clothesApi";
 import { TClothesItem } from "@/types/types";
 import { Dot } from "lucide-react";
+import Edit from "./Edit";
+import { toast } from "sonner";
 
 const DashAllWinterClothes = () => {
   const { data, isLoading } = useGetClothesQuery(undefined);
+  const [deleteClothes] = useDeleteClothesMutation();
+
+  const handleDeleteClothes = (ClotheId: string) => {
+    deleteClothes(ClotheId);
+    console.log("Todo deleted successfully");
+    toast.success("Todo deleted successfully");
+  };
 
   if (isLoading) {
     return <span>Loading...</span>;
   }
+
   return (
     <div className="text-secondary py-10 px-5">
       <Table>
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
-          <TableRow >
+          <TableRow>
             <TableHead className="italic-regular text-primary text-lg font-semibold">
               Cloth Title
             </TableHead>
@@ -57,9 +70,14 @@ const DashAllWinterClothes = () => {
                   ))}
                 </div>
               </TableCell>
-              <TableCell className="space-y-1 md:space-x-2">
-                <Button className="rounded-none w-20">Edit</Button>
-                <Button className="rounded-none w-20">Delete</Button>
+              <TableCell className=" flex items-center gap-1">
+                <Edit cloth={cloth} />
+                <Button
+                  onClick={() => handleDeleteClothes(cloth._id)}
+                  className="rounded-none w-20"
+                >
+                  Delete
+                </Button>
               </TableCell>
             </TableRow>
           ))}

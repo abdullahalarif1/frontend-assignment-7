@@ -1,5 +1,11 @@
 import { cn } from "@/lib/utils";
-import { GalleryHorizontal, PlusSquare } from "lucide-react";
+import {
+  GalleryHorizontal,
+  Home,
+  LayoutDashboard,
+  LogOut,
+  PlusSquare,
+} from "lucide-react";
 import { NavLink } from "react-router-dom";
 import img from "../assets/large-removebg-preview.png";
 
@@ -8,12 +14,25 @@ const SideBar = () => {
     <aside className="bg-light-gray col-span-3 h-screen sticky top-0 left-0 overflow-auto p-5">
       <nav className="flex flex-col gap-2">
         <img className="mb-10 w-48 mx-auto" src={img} alt="" />
+
+        <NavLink
+          to="/dashboard"
+          className={({ isActive }) =>
+            cn(
+              "p-2   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2",
+              { "bg-primary text-black": isActive }
+            )
+          }
+        >
+          <LayoutDashboard className="shrink-0" />
+          <span className="truncate">Dashboard</span>
+        </NavLink>
         <hr className="border border-slate-500 my-3" />
         <NavLink
           to="/dashboard/winter-clothes"
           className={({ isActive }) =>
             cn(
-              "p-3   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2",
+              "p-2   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2",
               { "bg-primary text-black": isActive }
             )
           }
@@ -23,11 +42,11 @@ const SideBar = () => {
         </NavLink>
 
         <NavLink
-          to="/admin/add-events-item"
+          to="/dashboard/create-winter-clothes"
           className={({ isActive }) =>
             cn(
-              "p-3   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2 mt-3",
-              { "bg-slate-800 text-white": isActive }
+              "p-2   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2 mt-3",
+              { "bg-primary text-black": isActive }
             )
           }
         >
@@ -37,6 +56,32 @@ const SideBar = () => {
 
         <hr className=" border border-slate-500 my-3" />
       </nav>
+      <div className="mt-32">
+        <NavLink
+          to="/"
+          className={({ isActive }) =>
+            cn(
+              "p-2 text-white  hover:bg-primary pb-3 hover:text-black  transition-all flex items-center gap-2 ",
+              { "bg-primary text-black": isActive }
+            )
+          }
+        >
+          <Home className="shrink-0" />
+          <span className="truncate">Home</span>
+        </NavLink>
+        <NavLink
+          to="/login"
+          className={({ isActive }) =>
+            cn(
+              " p-2  text-white  hover:bg-primary  hover:text-black  transition-all flex items-center gap-2 ",
+              { "bg-primary text-black": isActive }
+            )
+          }
+        >
+          <LogOut className="shrink-0" />
+          <span className="truncate">Logout</span>
+        </NavLink>
+      </div>
     </aside>
   );
 };

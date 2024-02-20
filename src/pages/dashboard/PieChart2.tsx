@@ -8,6 +8,8 @@ const PieChart2 = () => {
     return <p>Loading...</p>;
   }
 
+  
+
   // Render pie chart
   return (
     <ResponsiveContainer width="100%" height={400}>

@@ -5,10 +5,20 @@ import { useGetClothesQuery } from "@/redux/features/winter-clothes/clothesApi";
 import { TClothesItem } from "@/types/types";
 import { ArrowRightToLine, Dot } from "lucide-react";
 import { Link } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const WinterClothes = () => {
   const { data, isLoading } = useGetClothesQuery(undefined);
   console.log(data);
+  const parent = {
+    hidden: { opacity: 0, scale: 0.1 },
+    visible: { opacity: 1, scale: 1 },
+  };
+
+  const child = {
+    hidden: { opacity: 0, scale: 0.1 },
+    visible: { opacity: 1, scale: 1 },
+  };
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -18,11 +28,23 @@ const WinterClothes = () => {
     <Container>
       <TitleSection>Winter Clothes</TitleSection>
 
-      <div className="grid md:grid-cols-3  gap-5">
+      <motion.div
+        className="grid md:grid-cols-3  gap-5"
+        variants={parent}
+        initial="hidden"
+        animate="visible"
+        transition={{
+          ease: "easeInOut",
+          duration: 1.5,
+          delayChildren: 0.5,
+          staggerChildren: 0.5,
+        }}
+      >
         {data?.slice(0, 6).map((cloth: TClothesItem) => (
-          <div
+          <motion.div
             key={cloth._id}
             className="mt-5  shadow-2xl  p-10 relative text-secondary bg-card "
+            variants={child}
           >
             <img
               className="h-[500px] md:h-72 w-full pb-4"
@@ -54,9 +76,9 @@ const WinterClothes = () => {
                 View Detail
               </Button>
             </Link>
-          </div>
+          </motion.div>
         ))}
-      </div>
+      </motion.div>
       <Link to="/winter-clothes">
         <Button className="h-16 w-44 rounded-none flex items-center ms-auto gap-3 mt-8 font-bold text-base ">
           View All <ArrowRightToLine />

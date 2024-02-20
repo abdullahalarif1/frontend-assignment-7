@@ -8,7 +8,8 @@ import Register from "@/pages/Shared/Register";
 import WinterClothesDetail from "@/pages/AllWinterClothes/WinterClothesDetail";
 import DashboardLayout from "@/Layouts/DashboardLayout";
 import PieChart2 from "@/pages/dashboard/PieChart2";
-import DashAllWinterClothes from "@/pages/dashboard/AllWinterClothes";
+import DashAllWinterClothes from "@/pages/dashboard/DashAllWinterClothes";
+import CreateWinterClothes from "@/pages/dashboard/CreateWinterClothes";
 
 const router = createBrowserRouter([
   {
@@ -46,8 +47,12 @@ const router = createBrowserRouter([
         element: <PieChart2 />,
       },
       {
-        path: 'winter-clothes' ,
-        element: <DashAllWinterClothes/>,
+        path: "winter-clothes",
+        element: <DashAllWinterClothes />,
+      },
+      {
+        path: "create-winter-clothes",
+        element: <CreateWinterClothes />,
       },
     ],
   },
