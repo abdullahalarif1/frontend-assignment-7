@@ -2,7 +2,7 @@ import { cn } from "@/lib/utils";
 import {
   GalleryHorizontal,
   Home,
-  LayoutDashboard,
+  // LayoutDashboard,
   LogOut,
   PlusSquare,
 } from "lucide-react";
@@ -14,7 +14,7 @@ const SideBar = () => {
     <aside className="bg-light-gray col-span-3 h-screen sticky top-0 left-0 overflow-auto p-5">
       <nav className="flex flex-col gap-2">
         <img className="mb-10 w-48 mx-auto" src={img} alt="" />
-
+{/* 
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
@@ -26,7 +26,7 @@ const SideBar = () => {
         >
           <LayoutDashboard className="shrink-0" />
           <span className="truncate">Dashboard</span>
-        </NavLink>
+        </NavLink> */}
         <hr className="border border-slate-500 my-3" />
         <NavLink
           to="/dashboard/winter-clothes"

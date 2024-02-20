@@ -19,9 +19,7 @@ const Login = () => {
     register,
     handleSubmit,
     // reset,
-  } = useForm({
-    defaultValues: { email: "example@email.com", password: "password" },
-  });
+  } = useForm();
 
   const [login] = useLoginMutation();
 

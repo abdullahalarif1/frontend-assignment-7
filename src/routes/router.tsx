@@ -3,7 +3,7 @@ import App from "../App";
 import Home from "../pages/Home";
 import AllWinterClothes from "@/pages/AllWinterClothes/AllWinterClothes";
 import Login from "@/pages/Shared/Login";
-// import ProtectedRoute from "@/Layouts/ProtectedRoute";
+import ProtectedRoute from "@/Layouts/ProtectedRoute";
 import Register from "@/pages/Shared/Register";
 import WinterClothesDetail from "@/pages/AllWinterClothes/WinterClothesDetail";
 import DashboardLayout from "@/Layouts/DashboardLayout";
@@ -40,7 +40,11 @@ const router = createBrowserRouter([
   },
   {
     path: "/dashboard",
-    element: <DashboardLayout />,
+    element: (
+      <ProtectedRoute>
+        <DashboardLayout />
+      </ProtectedRoute>
+    ),
     children: [
       {
         index: true,

@@ -1,27 +1,14 @@
-# React + TypeScript + Vite
+# Urban Winter Clothes
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project basically based on winter clothe management. every user use it mush comfortably.
+
+- How to run the application locally?
+1. implementing authentication system for users with jwt very token.
+2. Write a Description: A well maintained backend development with  express , typescript and some important think such as, Beautiful home section, all winter clothes page and dashboard. if user logged in then, users shown the dashboard inner activity.
+3. Run locally: Firstly i am creating home page have 7 section with footer also implement animation. then creation   dashboard and implement CRUD operation of each services, winter clothes and create winter clothe. all data fetch by Redux Toolkit, RTK query.
+
 
 Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
-
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- [Client](https://urban-winter-clothe.web.app/)
+- [Server](https://l2-b2-frontend-path-assignment-6-server-starter-pack-seven.vercel.app/api)
