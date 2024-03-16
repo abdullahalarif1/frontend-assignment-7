@@ -7,6 +7,10 @@
     --background: 0 0% 100%;
     --foreground: 222.2 84% 4.9%;
 
+    --body_background: white;
+    --body-color: black;
+    --link_color: navy;
+
     --card: 0 0% 100%;
     --card-foreground: 222.2 84% 4.9%;
 
@@ -33,6 +37,17 @@
     --ring: 222.2 84% 4.9%;
 
     --radius: 0.5rem;
+  }
+
+  [data-theme="dark"] {
+    --body_background: linear-gradient(to right, #020403, #18332c);
+    --body-color: white;
+    --link_color: cyan;
+  }
+
+  [data-theme="light"] {
+    --light_background: linear-gradient(to right, #ffffff, #e0e0e0);
+    --light-color: black;
   }
 
   .dark {
@@ -69,19 +84,19 @@
 @layer base {
   * {
     @apply border-border  p-0 m-0 box-border;
+    transition: all 0.3s ease-in-out;
   }
   body {
     @apply text-foreground;
-    background: linear-gradient(to right, #020403, #18332C)
-    
+    /* background: linear-gradient(to right, #020403, #18332c); */
+    background: var(--body_background);
+    color: var(--body-color);
   }
-  .bg-auth{
-    background: linear-gradient(to right, #020403, #18332C)
-    
+  .bg-auth {
+    background: linear-gradient(to right, #020403, #18332c);
   }
-  .bg-card{
-    background: linear-gradient(to bottom,#18332C, #020403 )
-    
+  .bg-card {
+    background: linear-gradient(to bottom, #18332c, #020403);
   }
   html {
     font-family: "Exo 2", sans-serif;
@@ -94,6 +109,4 @@
     font-weight: 400;
     font-style: normal;
   }
-  
 }
-

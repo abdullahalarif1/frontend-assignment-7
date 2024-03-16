@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CircleUserRound } from "lucide-react";
+// import { CircleUserRound } from "lucide-react";
 import { NavLink, useNavigate } from "react-router-dom";
 import navTitle from "../../assets/large-removebg-preview.png";
 import { cn } from "@/lib/utils";
@@ -10,6 +10,7 @@ import {
   useCurrentUser,
 } from "@/redux/features/auth/authSlice";
 import { motion } from "framer-motion";
+import DarkMode from "@/components/ui/DarkMode";
 
 const NavBar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -99,9 +100,11 @@ const NavBar = () => {
             </NavLink>
           )}
         </motion.div>
+        
 
         <div className="flex items-center gap-2">
-          <CircleUserRound className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" />
+          <DarkMode/>
+          {/* <CircleUserRound className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" /> */}
           {user ? (
             <Button
               onClick={handleLogout}

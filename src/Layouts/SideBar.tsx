@@ -61,7 +61,7 @@ const SideBar = () => {
           to="/"
           className={({ isActive }) =>
             cn(
-              "p-2 text-white  hover:bg-primary pb-3 hover:text-black  transition-all flex items-center gap-2 ",
+              "p-2  hover:bg-primary pb-3 hover:text-black  transition-all flex items-center gap-2 ",
               { "bg-primary text-black": isActive }
             )
           }
@@ -73,7 +73,7 @@ const SideBar = () => {
           to="/login"
           className={({ isActive }) =>
             cn(
-              " p-2  text-white  hover:bg-primary  hover:text-black  transition-all flex items-center gap-2 ",
+              " p-2    hover:bg-primary  hover:text-black  transition-all flex items-center gap-2 ",
               { "bg-primary text-black": isActive }
             )
           }
