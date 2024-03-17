@@ -15,11 +15,13 @@ import CommunityGratitudeWall from "@/pages/CommunityGrattitude/Community";
 import CreateTestimonial from "@/pages/dashboard/CreateTestimonial";
 import VolunteerForm from "@/pages/Volunteer/VolunteerForm";
 import OurVolunteers from "@/pages/AboutUs/OurVolunteers";
+import ErrorPage from "@/pages/Shared/ErrorPage";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <App />,
+    errorElement: <ErrorPage></ErrorPage>,
     children: [
       {
         index: true,

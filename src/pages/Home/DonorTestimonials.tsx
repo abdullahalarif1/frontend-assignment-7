@@ -1,5 +1,4 @@
 import Container from "@/components/ui/Container";
-import TitleSection from "@/components/ui/TitleSection";
 import { Card, CardContent } from "@/components/ui/card";
 import {
   Carousel,
@@ -10,67 +9,10 @@ import {
 } from "@/components/ui/carousel";
 import { useGetDonorsQuery } from "@/redux/features/donors/donorsApi";
 import { TDonorItem } from "@/types/types";
+// import { useWindowSize } from "react-use"; // Import the useWindowSize hook
 
 const DonorTestimonials = () => {
-  // const donorData = [
-  //   {
-  //     id: 1,
-  //     img: "https://media.licdn.com/dms/image/D5603AQHQsxTFYObr6Q/profile-displayphoto-shrink_800_800/0/1680094997594?e=2147483647&v=beta&t=BNdZKZoHhQlMBywuMDIbNZfaKby7iFIcgc7bq3K_v20",
-  //     name: "Sarah Johnson",
-  //     location: "New York, NY",
-  //     testimonial:
-  //       "I donated winter coats and gloves to help those in need stay warm during the cold winter months. It feels great to make a difference!",
-  //     amount: "$50.49",
-  //   },
-  //   {
-  //     id: 2,
-  //     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ0VYsbTD9AG5x-bXexTbzbmKp8sjHNh-jsCl4juyhfnw&s",
-  //     name: "Michael Smith",
-  //     location: "Chicago, IL",
-  //     testimonial:
-  //       "I'm proud to support this cause by donating winter hats and scarves. It's heartwarming to see the impact we can make together.",
-  //     amount: "$100",
-  //   },
-  //   {
-  //     id: 3,
-  //     img: "https://m.media-amazon.com/images/M/MV5BNDVlZTk2ZjctMDE5Yy00MDkwLThkZTMtZGZkNzJhM2RlM2Y1XkEyXkFqcGdeQXVyMjQwMDg0Ng@@._V1_.jpg",
-  //     name: "Emily Brown",
-  //     location: "Los Angeles, CA",
-  //     testimonial:
-  //       "Donating winter clothes was a small gesture, but knowing it will bring warmth to someone in need makes it all worthwhile.",
-  //     amount: "$70",
-  //   },
-  //   {
-  //     id: 4,
-  //     img: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQR_xTa2Mapt9VUh2THHnorEXjoDlpookYOFHj_g649Tw&s",
-  //     name: "David Rodriguez",
-  //     location: "Houston, TX",
-  //     testimonial:
-  //       "I donated winter boots and socks to help those facing homelessness stay comfortable and safe during the winter season.",
-  //     amount: "$80",
-  //   },
-  //   {
-  //     id: 5,
-  //     img: "https://ca-times.brightspotcdn.com/dims4/default/c5bb5f7/2147483647/strip/true/crop/3145x3145+1725+484/resize/200x200!/quality/75/?url=https%3A%2F%2Fcalifornia-times-brightspot.s3.amazonaws.com%2F9f%2F00%2F483d2f9e40099e53712c624cf6f4%2Fjessica-martinez-tcn.jpg",
-  //     name: "Jessica Martinez",
-  //     location: "Miami, FL",
-  //     testimonial:
-  //       "I'm grateful for the opportunity to give back by donating winter clothes. Together, we can make a difference in our community.",
-  //     amount: "$99",
-  //   },
-  //   {
-  //     id: 6,
-  //     img: "https://cdn.britannica.com/96/234396-050-A4958606/Christopher-Lee-Bangkok-International-Film-Festival-Thailand-February-20-2006.jpg",
-  //     name: "Christopher Lee",
-  //     location: "Seattle, WA",
-  //     testimonial:
-  //       "Donating winter clothing items is my way of spreading warmth and kindness. It's amazing to see the impact of our collective efforts.",
-  //     amount: "$66",
-  //   },
-  // ];
-
   const { data, isLoading } = useGetDonorsQuery(undefined);
-  console.log(data);
 
   if (isLoading) {
     return <span>Loading...</span>;
@@ -78,8 +20,12 @@ const DonorTestimonials = () => {
 
   return (
     <Container className="py-20">
-      <TitleSection>Donor Testimonials</TitleSection>
-      <div className="flex justify-center items-center ">
+      <div className="text-center max-w-[1086px] mx-auto my-14 pb-10">
+        <h1 className="font-extrabold border-2 border-primary text-primary italic-regular text-3xl md:text-5xl py-6 flex justify-center items-center gap-4">
+         Donor Testimonials
+        </h1>
+      </div>
+      <div className="flex justify-center items-center relative">
         <Carousel
           opts={{
             align: "start",
@@ -92,15 +38,15 @@ const DonorTestimonials = () => {
                 key={testimonial._id}
                 className="md:basis-1/2 lg:basis-1/3"
               >
-                <div className="p-1">
-                  <Card className="rounded-none border border-primary">
+                <div className="p-1 pt-4 md:pt-6">
+                  <Card className="rounded-none border border-primary ">
                     <CardContent className="p-6">
                       <img
                         className="size-20 rounded-full border-2 border-primary mx-auto mb-10"
                         src={testimonial.img}
                         alt=""
                       />
-                      <h3 className="text-2xl text-primary  italic-regular  font-semibold  mb-2">
+                      <h3 className="text-2xl text-primary italic-regular font-semibold mb-2">
                         {testimonial.name}
                       </h3>
                       <p className="text-secondary text-sm">
@@ -115,8 +61,10 @@ const DonorTestimonials = () => {
               </CarouselItem>
             ))}
           </CarouselContent>
-          <CarouselPrevious className=" hover:bg-black hover:text-primary border-2 border-primary bg-primary" />
-          <CarouselNext className="hover:text-primary  border-2 border-primary bg-primary hover:bg-black" />
+          <div className="my-5">
+            <CarouselPrevious className="hover:bg-black hover:text-primary border-2 md:size-10 border-primary bg-primary absolute left-0 -top-5" />
+            <CarouselNext className="hover:text-primary border-2 border-primary md:size-10 bg-primary hover:bg-black absolute left-10 md:left-12 -top-5" />
+          </div>
         </Carousel>
       </div>
     </Container>

@@ -108,20 +108,23 @@ const NavBar = () => {
           >
             Gratitude
           </NavLink>
-          <NavLink
-            className={({ isActive }) =>
-              cn(
-                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
-                {
-                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
-                    isActive,
-                }
-              )
-            }
-            to="/volunteer"
-          >
-            Volunteer
-          </NavLink>
+          {user && (
+            <NavLink
+              className={({ isActive }) =>
+                cn(
+                  "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                  {
+                    "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                      isActive,
+                  }
+                )
+              }
+              to="/volunteer"
+            >
+              Volunteer
+            </NavLink>
+          )}
+
           <NavLink
             className={({ isActive }) =>
               cn(
