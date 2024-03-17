@@ -7,3 +7,19 @@ export interface TClothesItem {
   description: string;
   price: number;
 }
+
+export interface TDonorItem {
+  _id: string;
+  img: string;
+  name: string;
+  location: string;
+  testimonial: string;
+  amount: number;
+}
+
+export interface TVolunteer {
+  _id: string;
+  email: string;
+  phoneNumber: string;
+  location: string;
+}

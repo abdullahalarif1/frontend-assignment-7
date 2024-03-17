@@ -33,7 +33,7 @@ const DashAllWinterClothes = () => {
 
   return (
     <div className="text-secondary py-10 px-5">
-      <Table>
+      <Table >
         <TableCaption>A list of your recent invoices.</TableCaption>
         <TableHeader>
           <TableRow>

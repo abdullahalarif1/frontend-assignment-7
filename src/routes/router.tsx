@@ -10,6 +10,11 @@ import DashboardLayout from "@/Layouts/DashboardLayout";
 import PieChart2 from "@/pages/dashboard/PieChart2";
 import DashAllWinterClothes from "@/pages/dashboard/DashAllWinterClothes";
 import CreateWinterClothes from "@/pages/dashboard/CreateWinterClothes";
+import LeaderBoard from "@/pages/DonorsLeaderboard/LeaderBoard";
+import CommunityGratitudeWall from "@/pages/CommunityGrattitude/Community";
+import CreateTestimonial from "@/pages/dashboard/CreateTestimonial";
+import VolunteerForm from "@/pages/Volunteer/VolunteerForm";
+import OurVolunteers from "@/pages/AboutUs/OurVolunteers";
 
 const router = createBrowserRouter([
   {
@@ -27,6 +32,26 @@ const router = createBrowserRouter([
       {
         path: "winter-clothes/:id",
         element: <WinterClothesDetail />,
+      },
+      {
+        path: "leaderboard",
+        element: <LeaderBoard />,
+      },
+      {
+        path: "community",
+        element: <CommunityGratitudeWall />,
+      },
+      {
+        path: "volunteer",
+        element: (
+          <ProtectedRoute>
+            <VolunteerForm />
+          </ProtectedRoute>
+        ),
+      },
+      {
+        path: "about-us",
+        element: <OurVolunteers />,
       },
     ],
   },
@@ -57,6 +82,10 @@ const router = createBrowserRouter([
       {
         path: "create-winter-clothes",
         element: <CreateWinterClothes />,
+      },
+      {
+        path: "create-testimonial",
+        element: <CreateTestimonial />,
       },
     ],
   },

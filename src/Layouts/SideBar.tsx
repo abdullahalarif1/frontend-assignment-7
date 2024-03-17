@@ -11,10 +11,10 @@ import img from "../assets/large-removebg-preview.png";
 
 const SideBar = () => {
   return (
-    <aside className="bg-light-gray col-span-3 h-screen sticky top-0 left-0 overflow-auto p-5">
+    <aside className="bg-light-gray col-span-3 h-screen sticky top-0 left-0 overflow-auto border-e-2 border-slate-700 p-5 shadow-2xl ">
       <nav className="flex flex-col gap-2">
         <img className="mb-10 w-48 mx-auto" src={img} alt="" />
-{/* 
+        {/* 
         <NavLink
           to="/dashboard"
           className={({ isActive }) =>
@@ -55,13 +55,26 @@ const SideBar = () => {
         </NavLink>
 
         <hr className=" border border-slate-500 my-3" />
+
+        <NavLink
+          to="/dashboard/create-testimonial"
+          className={({ isActive }) =>
+            cn(
+              "p-2   border-2 border-primary text-white  hover:bg-primary text-primary hover:text-black italic-regular transition-all flex justify-center gap-2 mt-3",
+              { "bg-primary text-black": isActive }
+            )
+          }
+        >
+          <PlusSquare className="shrink-0" />
+          <span className="truncate">Create Testimonial</span>
+        </NavLink>
       </nav>
       <div className="mt-32">
         <NavLink
           to="/"
           className={({ isActive }) =>
             cn(
-              "p-2  hover:bg-primary pb-3 hover:text-black  transition-all flex items-center gap-2 ",
+              "p-2 text-white  hover:bg-primary pb-3 hover:text-black  transition-all flex items-center gap-2 ",
               { "bg-primary text-black": isActive }
             )
           }
@@ -73,7 +86,7 @@ const SideBar = () => {
           to="/login"
           className={({ isActive }) =>
             cn(
-              " p-2    hover:bg-primary  hover:text-black  transition-all flex items-center gap-2 ",
+              " p-2 text-white   hover:bg-primary  hover:text-black  transition-all flex items-center gap-2 ",
               { "bg-primary text-black": isActive }
             )
           }

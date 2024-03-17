@@ -43,7 +43,7 @@ const CreateWinterClothes = () => {
     }
   };
   return (
-    <div className="py-10 max-w-xl mx-auto">
+    <div className="p-2 py-6 md:p-10 max-w-xl mx-auto bg-[#18332c] rounded-lg shadow-lg mt-5">
       <form
         onSubmit={handleSubmit}
         className="flex justify-center w-full items-center flex-col gap-7 text-secondary"
@@ -54,6 +54,7 @@ const CreateWinterClothes = () => {
           onChange={(e) => setClotheTitle(e.target.value)}
           className="border border-primary focus:border-green-400 w-full mt-1 px-4 py-4 bg-inherit"
           placeholder="Clothe Name"
+          required
         />
         <input
           type="text"
@@ -61,6 +62,7 @@ const CreateWinterClothes = () => {
           onChange={(e) => setClotheCategory(e.target.value)}
           className="border border-primary focus:border-green-400 w-full mt-1 px-4 py-4 bg-inherit"
           placeholder="Clothe Category"
+          required
         />
         <input
           type="text"
@@ -68,6 +70,7 @@ const CreateWinterClothes = () => {
           onChange={(e) => setClotheImage(e.target.value)}
           className="border border-primary focus:border-green-400 w-full mt-1 px-4 py-4 bg-inherit"
           placeholder="Clothe Image Link"
+          required
         />
 
         <textarea
@@ -75,12 +78,14 @@ const CreateWinterClothes = () => {
           onChange={(e) => setClotheSize(e.target.value.split("\n"))}
           className="border border-primary focus:border-green-400 w-full mt-1 px-4 py-4 bg-inherit"
           placeholder="Clothe Size (One per line)"
+          required
         />
         <textarea
           value={clotheDescription}
           onChange={(e) => setClotheDescription(e.target.value)}
           className="border border-primary focus:border-green-400 w-full mt-1 px-4 py-4 bg-inherit"
           placeholder="Clothe Description"
+          required
         />
 
         <Button className="rounded-none me-auto">

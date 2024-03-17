@@ -5,10 +5,7 @@ import { NavLink, useNavigate } from "react-router-dom";
 import navTitle from "../../assets/large-removebg-preview.png";
 import { cn } from "@/lib/utils";
 import { useAppDispatch, useAppSelector } from "@/redux/hooks";
-import {
-  logout,
-  useCurrentUser,
-} from "@/redux/features/auth/authSlice";
+import { logout, useCurrentUser } from "@/redux/features/auth/authSlice";
 import { motion } from "framer-motion";
 import DarkMode from "@/components/ui/DarkMode";
 
@@ -27,10 +24,10 @@ const NavBar = () => {
     navigate("/login");
   };
 
-    const parent = {
-      hidden: { opacity: 0, scale: 0.1 },
-      visible: { opacity: 1, scale: 1 },
-    };
+  const parent = {
+    hidden: { opacity: 0, scale: 0.1 },
+    visible: { opacity: 1, scale: 1 },
+  };
 
   return (
     <div className="fixed top-0 w-full z-50 ">
@@ -59,7 +56,7 @@ const NavBar = () => {
             to="/"
             className={({ isActive }) =>
               cn(
-                "hover:bg-primary text hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
                 {
                   "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
                     isActive,
@@ -72,7 +69,7 @@ const NavBar = () => {
           <NavLink
             className={({ isActive }) =>
               cn(
-                "hover:bg-primary text hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex  ",
                 {
                   "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
                     isActive,
@@ -83,11 +80,67 @@ const NavBar = () => {
           >
             All Winter Clothes
           </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                {
+                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                    isActive,
+                }
+              )
+            }
+            to="/leaderboard"
+          >
+            Donors Leaderboard
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                {
+                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                    isActive,
+                }
+              )
+            }
+            to="/community"
+          >
+            Gratitude
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                {
+                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                    isActive,
+                }
+              )
+            }
+            to="/volunteer"
+          >
+            Volunteer
+          </NavLink>
+          <NavLink
+            className={({ isActive }) =>
+              cn(
+                "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                {
+                  "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
+                    isActive,
+                }
+              )
+            }
+            to="/about-us"
+          >
+            About Us
+          </NavLink>
           {user && (
             <NavLink
               className={({ isActive }) =>
                 cn(
-                  "hover:bg-primary text hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
+                  "hover:bg-primary text-xs hover:text-black hover:px-2 hover:font-semibold hover:italic-regular transition-all flex ",
                   {
                     "rounded-none font-semibold px-2 border-2 border-primary  italic-regular text-primary":
                       isActive,
@@ -100,10 +153,9 @@ const NavBar = () => {
             </NavLink>
           )}
         </motion.div>
-        
 
         <div className="flex items-center gap-2">
-          <DarkMode/>
+          <DarkMode />
           {/* <CircleUserRound className="h-7 w-7 sm:h-8 sm:w-8 text-secondary" /> */}
           {user ? (
             <Button
@@ -187,7 +239,75 @@ const NavBar = () => {
             </li>
             <li className="py-2 px-4 ">
               <NavLink
-                to="/admin"
+                to="/leaderboard"
+                className={({ isActive }) =>
+                  cn(
+                    "hover:bg-green-500 font-semibold hover:text-black hover:px-2 hover:font-semibold italic-regular transition-all  w-full",
+                    {
+                      "rounded-none font-semibold px-2 border-2 border-primary  italic-regular ":
+                        isActive,
+                    }
+                  )
+                }
+                onClick={toggleMenu}
+              >
+                Donors Leaderboard
+              </NavLink>
+            </li>
+            <li className="py-2 px-4 ">
+              <NavLink
+                to="/community"
+                className={({ isActive }) =>
+                  cn(
+                    "hover:bg-green-500 font-semibold hover:text-black hover:px-2 hover:font-semibold italic-regular transition-all  w-full",
+                    {
+                      "rounded-none font-semibold px-2 border-2 border-primary  italic-regular ":
+                        isActive,
+                    }
+                  )
+                }
+                onClick={toggleMenu}
+              >
+                Gratitude
+              </NavLink>
+            </li>
+            <li className="py-2 px-4 ">
+              <NavLink
+                to="/volunteer"
+                className={({ isActive }) =>
+                  cn(
+                    "hover:bg-green-500 font-semibold hover:text-black hover:px-2 hover:font-semibold italic-regular transition-all  w-full",
+                    {
+                      "rounded-none font-semibold px-2 border-2 border-primary  italic-regular ":
+                        isActive,
+                    }
+                  )
+                }
+                onClick={toggleMenu}
+              >
+                Volunteer
+              </NavLink>
+            </li>
+            <li className="py-2 px-4 ">
+              <NavLink
+                to="/about-us"
+                className={({ isActive }) =>
+                  cn(
+                    "hover:bg-green-500 font-semibold hover:text-black hover:px-2 hover:font-semibold italic-regular transition-all  w-full",
+                    {
+                      "rounded-none font-semibold px-2 border-2 border-primary  italic-regular ":
+                        isActive,
+                    }
+                  )
+                }
+                onClick={toggleMenu}
+              >
+                About Us
+              </NavLink>
+            </li>
+            <li className="py-2 px-4 ">
+              <NavLink
+                to="/dashboard"
                 className={({ isActive }) =>
                   cn(
                     "hover:bg-primary font-semibold hover:text-black hover:px-2 hover:font-semibold italic-regular transition-all  w-full",
