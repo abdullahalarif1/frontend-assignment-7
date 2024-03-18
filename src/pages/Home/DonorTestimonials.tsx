@@ -22,10 +22,17 @@ const DonorTestimonials = () => {
     <Container className="py-20">
       <div className="text-center max-w-[1086px] mx-auto my-14 pb-10">
         <h1 className="font-extrabold border-2 border-primary text-primary italic-regular text-3xl md:text-5xl py-6 flex justify-center items-center gap-4">
-         Donor Testimonials
+          Donor Testimonials
         </h1>
       </div>
-      <div className="flex justify-center items-center relative">
+      <div
+        className="flex justify-center items-center relative"
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      
+      >
         <Carousel
           opts={{
             align: "start",

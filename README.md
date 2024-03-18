@@ -12,4 +12,4 @@ This project basically based on winter clothe management. every user use it mush
 Currently, two official plugins are available:
 
 - [Client](https://urban-winter-clothe.web.app/)
-- [Server](https://l2-b2-frontend-path-assignment-6-server-starter-pack-seven.vercel.app/api)
+- [Server](https://https://l2b2-assignment-7.vercel.app/)

@@ -3,13 +3,10 @@ import TitleSection from "@/components/ui/TitleSection";
 import { useState } from "react";
 import { Carousel } from "react-responsive-carousel";
 import "react-responsive-carousel/lib/styles/carousel.min.css";
-import { motion } from "framer-motion";
+// import { motion } from "framer-motion";
 
 const GallerySection = () => {
-   const parent = {
-     hidden: { opacity: 0, scale: 0.1 },
-     visible: { opacity: 1, scale: 1 },
-   };
+  
   // Dummy image URLs for demonstration
   const images = [
     "https://cdn.shopify.com/s/files/1/1215/2782/files/leo_suppre_elements_banner1_h3.jpg",
@@ -27,15 +24,12 @@ const GallerySection = () => {
 
   return (
     <Container className=" pb-20">
-      <motion.div
+      <div
         className="container mx-auto px-4"
-        variants={parent}
-        initial="hidden"
-        animate="visible"
-        transition={{
-          ease: "easeInOut",
-          duration: 1.5,
-        }}
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
       >
         <TitleSection>Gallery</TitleSection>
         <Carousel
@@ -68,7 +62,7 @@ const GallerySection = () => {
             ></div>
           ))}
         </div>
-      </motion.div>
+      </div>
     </Container>
   );
 };

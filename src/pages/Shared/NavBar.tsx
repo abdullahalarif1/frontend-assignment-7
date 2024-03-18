@@ -24,10 +24,10 @@ const NavBar = () => {
     navigate("/login");
   };
 
-  const parent = {
-    hidden: { opacity: 0, scale: 0.1 },
-    visible: { opacity: 1, scale: 1 },
-  };
+  // const parent = {
+  //   hidden: { opacity: 0, scale: 0.1 },
+  //   visible: { opacity: 1, scale: 1 },
+  // };
 
   return (
     <div className="fixed top-0 w-full z-50 ">
@@ -42,16 +42,7 @@ const NavBar = () => {
           </NavLink>
         </div>
 
-        <motion.div
-          className="hidden sm:flex space-x-5 text-sm lg:text-base text-secondary"
-          variants={parent}
-          initial="hidden"
-          animate="visible"
-          transition={{
-            ease: "easeIn",
-            duration: 1.5,
-          }}
-        >
+        <motion.div className="hidden sm:flex space-x-5 text-sm lg:text-base text-secondary">
           <NavLink
             to="/"
             className={({ isActive }) =>

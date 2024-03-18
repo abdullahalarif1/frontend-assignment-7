@@ -13,7 +13,13 @@ const SuccessStories = () => {
   return (
     <Container className="py-20">
       <TitleSection>Success Stories</TitleSection>
-      <div className="flex items-center justify-center pt-10">
+      <div
+        className="flex items-center justify-center pt-10"
+        data-aos="fade-up"
+        data-aos-delay="50"
+        data-aos-duration="1000"
+        data-aos-easing="ease-in-out"
+      >
         <Carousel
           opts={{
             align: "start",

@@ -5,7 +5,13 @@ import Marquee from "react-fast-marquee";
 
 const ColdWetherSafetyTips = () => {
   return (
-    <div className="bg-[#18332c] pb-20 border-b-2 border-primary border-t-2">
+    <div
+      className="bg-[#18332c] pb-20 border-b-2 border-primary border-t-2"
+      data-aos="fade-up"
+      data-aos-delay="50"
+      data-aos-duration="1000"
+      data-aos-easing="ease-in-out"
+    >
       <div className="px-2">
         <TitleSection>Cold Weather Safety Tips</TitleSection>
       </div>
